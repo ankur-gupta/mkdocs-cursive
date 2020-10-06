@@ -1,0 +1,4 @@
+site_name: MkDocs Cursive theme
+theme:
+    name: null
+    custom_dir: cursive
