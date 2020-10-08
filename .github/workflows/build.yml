@@ -7,9 +7,26 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-python@v2
+            # Check out the source code first
+            - name: Checkout the source from GitHub
+              uses: actions/checkout@v2
+            
+            # Compile SCSS to CSS (Node.js)
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: 10.x
+            - name: Intall dependencies and run scss-compile
+              run: |
+                  npm install
+                  npm run scss-compile
+          
+            # Run MkDocs (Python)
+            - name: Setup Python environment
+              uses: actions/setup-python@v2
               with:
                 python-version: 3.x
-            - run: pip install wheel mkdocs
-            - run: mkdocs gh-deploy --force
+            - name: Install dependencies and run mkdocs
+              run: |
+                pip install wheel mkdocs
+                mkdocs gh-deploy --force
