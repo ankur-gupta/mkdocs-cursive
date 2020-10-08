@@ -16,10 +16,10 @@ jobs:
               uses: actions/setup-node@v2.1.2
               with:
                   node-version: 10.x
-            - name: Intall dependencies and run sass-compile
+            - name: Intall dependencies and run scss-compile
               run: |
                   npm install
-                  npm run sass-compile
+                  npm run scss-compile
           
             # Run MkDocs (Python)
             - name: Setup Python environment
