@@ -1,0 +1,33 @@
+{
+  "name": "mkdocs-cursive",
+  "version": "0.0.1",
+  "description": "An elegant Tufte-style theme for MkDocs",
+  "keywords": [
+    "mkdocs",
+    "theme"
+  ],
+  "homepage": "https://github.com/ankur-gupta/mkdocs-cursive",
+  "bugs": {
+    "url": "https://github.com/ankur-gupta/mkdocs-cursive/issues",
+    "email": "ankur@perfectlyrandom.org"
+  },
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "Ankur Gupta",
+    "email": "ankur@perfectlyrandom.org"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ankur-gupta/mkdocs-cursive.git"
+  },
+  "scripts": {
+    "scss-compile": "npx node-sass -r cursive/scss/ -o cursive/css/",
+    "watch": "npm run scss-compile"
+  },
+  "dependencies": {
+    "scss-compile": "0.1.7"
+  },
+  "devDependencies": {}
+}

@@ -3,3 +3,5 @@
 __pycache__
 .idea
 .vscode
+node_modules
+cursive/css/main.css
