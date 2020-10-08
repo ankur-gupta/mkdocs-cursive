@@ -1,4 +1,20 @@
-site_name: MkDocs Cursive theme
 theme:
     name: null
     custom_dir: cursive
+
+site_url: https://cursive.perfectlyrandom.org
+site_name: MkDocs Cursive theme
+site_author: Ankur Gupta
+site_description: >-
+        An elegant Tufte-style theme for MkDocs
+
+social:
+    twitter: ankurIO
+    github: ankur-gupta
+
+attribution:
+    theme:
+        name: MkDocs Cursive
+        url: https://cursive.perfectlyrandom.org
+
+

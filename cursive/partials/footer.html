@@ -1,0 +1,14 @@
+<footer>
+    <div>
+        <a href="{{ config.site_url }}/about">{{ config.site_name }}</a> |
+        {{ config.site_description }}
+        {% if config.attribution and config.attribution.theme and config.attribution.theme.name %}
+            {% if config.attribution.theme.url %}
+                | based on <a href="{{ config.attribution.theme.url }}">{{ config.attribution.theme.name }}</a>
+            {% else %}
+                | based on {{ config.attribution.theme.name }}
+            {% endif %}
+            theme
+        {% endif %}
+    </div>
+</footer>

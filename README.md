@@ -8,3 +8,5 @@ This is a Cursive theme for [MkDocs](https://www.mkdocs.org/).
 mkdocs serve -a localhost:8000
 ```
 
+## License
+[MIT License](LICENSE)

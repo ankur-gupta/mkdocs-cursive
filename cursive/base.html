@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
-    </head>
+    {% include "partials/header.html" %}
     <body>
-        {{ page.content }}
+        <div>
+            <header>
+                <h1><a href="{{ config.site_url }}">{{ config.site_name }}</a></h1>
+                <span>{{ config.site_description }}</span>
+            </header>
+            <div>
+                {{ page.content }}
+            </div>
+            {% include "partials/footer.html" %}
+        </div>
     </body>
 </html>

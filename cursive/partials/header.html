@@ -1,0 +1,115 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% if page.title %}
+            {{ page.title | striptags | title }} -
+        {% endif %}
+        {{ config.site_name | striptags | title }}
+    </title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-et-book/0.1/et-book.min.css">
+
+    <!-- Styling -->
+    <link rel="stylesheet" href="{{ 'css/normalize.css' | url }}">
+
+    <!-- Thanks to https://github.com/jez/tufte-pandoc-jekyll (MIT License) and https://github.com/edwardtufte/et-book (MIT License) -->
+    <link rel="stylesheet" href="{{ 'css/main.css' | url }}">
+
+    <link rel="stylesheet" href="{{ 'css/syntax.css' | url }}">
+
+    <!-- MathJax support -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <!-- Meta information for search engines -->
+    <!-- Author -->
+    {% if page and page.meta and page.meta.author %}
+        <meta name="author" content="{{ page.meta.author }}">
+    {% elif config.site_author %}
+        <meta name="author" content="{{ config.site_author }}">
+    {% endif %}
+
+    <!-- Description -->
+    {% if page and page.meta and page.meta.description %}
+        <meta name="description" content="{{ page.meta.description | striptags }}">
+    {% elif config.site_description %}
+        <meta name="description" content="{{ config.site_description | striptags}}">
+    {% endif %}
+
+    <!-- Keywords -->
+    {% if page and page.meta and page.meta.categories %}
+        <meta name="keywords" content="{{ page.meta.categories | join(', ') }}">
+    {% endif %}
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary" />
+    {% if config.social and config.social.twitter %}
+        <meta name="twitter:creator" content="@{{ config.social.twitter }}" />
+    {% endif %}
+    {% if page and page.title %}
+        <meta name="twitter:title" content="{{ page.title }}" />
+    {% elif config.site_name %}
+        <meta name="twitter:title" content="{{ config.site_name }}" />
+    {% endif %}
+    {% if page and page.canonical_url %}
+        <meta name="twitter:url" content="{{ page.canonical_url }}" />
+    {% elif config.site_url %}
+        <meta name="twitter:url" content="{{ config.site_url }}" />
+    {% endif %}
+    {% if page %}
+        <meta name="twitter:description" content="{{ page.content | striptags | truncate(150, False) }}" />
+    {% else %}
+        <meta name="twitter:description" content="{{ config.site_description | striptags | truncate(150, False) }}" />
+    {% endif %}
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="{{ config.site_name | striptags }}">
+    {% if page and page.title %}
+        <meta property="og:title" content="{{ page.title }}" />
+    {% elif config.site_name %}
+        <meta property="og:title" content="{{ config.site_name }}" />
+    {% endif %}
+    {% if page and page.canonical_url %}
+        <meta name="og:url" content="{{ page.canonical_url }}" />
+    {% elif config.site_url %}
+        <meta name="og:url" content="{{ config.site_url }}" />
+    {% endif %}
+    {% if page %}
+        <meta name="og:description" content="{{ page.content | striptags | truncate(150, False) }}" />
+    {% else %}
+        <meta name="og:description" content="{{ config.site_description | striptags | truncate(150, False) }}" />
+    {% endif %}
+
+    <!-- Set the canonical URL for search engines -->
+    <link rel="canonical" href="{{ page.canonical_url }}">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ config.site_name }}" href="{{ config.site_url }}/feed.xml" />
+
+    <!-- Icons -->
+    <!-- The ?v=5i4y3isdnfs simply forces the browser to reload the favicon. Remove after a long time. -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ config.site_url }}/favicon/apple-touch-icon-57x57.png?v=5i4y3isdnfs">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ config.site_url }}/favicon/apple-touch-icon-60x60.png?v=5i4y3isdnfs">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ config.site_url }}/favicon/apple-touch-icon-72x72.png?v=5i4y3isdnfs">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ config.site_url }}/favicon/apple-touch-icon-76x76.png?v=5i4y3isdnfs">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ config.site_url }}/favicon/apple-touch-icon-114x114.png?v=5i4y3isdnfs">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ config.site_url }}/favicon/apple-touch-icon-120x120.png?v=5i4y3isdnfs">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ config.site_url }}/favicon/apple-touch-icon-144x144.png?v=5i4y3isdnfs">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ config.site_url }}/favicon/apple-touch-icon-152x152.png?v=5i4y3isdnfs">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ config.site_url }}/favicon/apple-touch-icon-180x180.png?v=5i4y3isdnfs">
+    <link rel="icon" type="image/png" href="{{ config.site_url }}/favicon/favicon-32x32.png?v=5i4y3isdnfs" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ config.site_url }}/favicon/favicon-194x194.png?v=5i4y3isdnfs" sizes="194x194">
+    <link rel="icon" type="image/png" href="{{ config.site_url }}/favicon/favicon-96x96.png?v=5i4y3isdnfs" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{ config.site_url }}/favicon/android-chrome-192x192.png?v=5i4y3isdnfs" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{ config.site_url }}/favicon/favicon-16x16.png?v=5i4y3isdnfs" sizes="16x16">
+    <link rel="shortcut icon" href="{{ config.site_url }}/favicon/favicon.ico?v=5i4y3isdnfs">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{{ config.site_url }}/favicon/mstile-144x144.png?v=5i4y3isdnfs">
+</head>
